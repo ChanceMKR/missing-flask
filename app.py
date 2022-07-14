@@ -55,7 +55,7 @@ model.add(Activation('softmax'))
 model.add(Dense(128, activation='relu'))
 model.add(Dense(5))
 model.add(Activation('softmax'))
-model.load_weights('./missing_model.h5')
+model.load_weights('/Users/chance/Desktop/missing/missing-flask/static/missing_model.h5')
 
 f = open("/Users/chance/Desktop/missing/missing-flask/static/name_list.csv", 'r')
 lines = f.readlines()
@@ -64,13 +64,11 @@ for line in lines:
     li.append(line.strip())
 f.close()
 
-
-
 app = Flask(__name__)
 
 @app.route("/")
 def predict():
-    img = DeepFace.detectFace('/Users/chance/Desktop/missing/missing-flask/static/임혜영0.jpeg')
+    img = DeepFace.detectFace('/Users/chance/Desktop/missing/missing-flask/static/임혜영2.jpeg')
     img = img[np.newaxis, :]
     score = model.predict(img)
     high_score = np.argmax(score)
