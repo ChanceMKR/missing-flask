@@ -68,6 +68,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def predict():
+    
     img = DeepFace.detectFace('/Users/chance/Desktop/missing/missing-flask/static/임혜영2.jpeg')
     img = img[np.newaxis, :]
     score = model.predict(img)
